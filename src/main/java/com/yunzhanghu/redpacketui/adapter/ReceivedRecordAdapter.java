@@ -1,15 +1,17 @@
 package com.yunzhanghu.redpacketui.adapter;
 
 import android.content.Context;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -75,13 +77,13 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         RecyclerView.ViewHolder holder = null;
         View view;
         if (viewType == TYPE_HEADER) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_received_record_list_header, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_received_record_list_header_dev, parent, false);
             holder = new HeaderViewHolder(view);
         } else if (viewType == TYPE_ITEM) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_received_record_list_item, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_received_record_list_item_dev, parent, false);
             holder = new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_record_list_footer, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_record_list_footer_dev, parent, false);
             holder = new FooterViewHolder(view);
         }
         return holder;
@@ -104,7 +106,7 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 
     private void setHeaderViews(HeaderViewHolder headerViewHolder, int position) {
         final RedPacketInfo redPacketInfo = mList.get(position);
-        headerViewHolder.tvUserName.setText(mCurrentUserName);
+        headerViewHolder.tvUserName.setText(String.format(mContext.getString(R.string.name_str_format_received), mCurrentUserName));
         if (redPacketInfo.totalCount > 0) {
             headerViewHolder.tvTotalCount.setTextColor(ContextCompat.getColor(mContext, R.color.rp_text_grey));
         } else {
@@ -120,31 +122,42 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         headerViewHolder.tvBestCount.setText(String.valueOf(redPacketInfo.bestCount));
         //默认状态
         headerViewHolder.tvAliAccount.setText("");
+        headerViewHolder.tvAliAccount.setVisibility(View.GONE);
         headerViewHolder.tvAliAccountHint.setVisibility(View.GONE);
-        headerViewHolder.llShowAli.setVisibility(View.GONE);
-        headerViewHolder.llBindAli.setVisibility(View.GONE);
+        headerViewHolder.btnBindAli.setVisibility(View.GONE);
+        headerViewHolder.tvBindAliHint.setVisibility(View.GONE);
+        //headerViewHolder.llShowAli.setVisibility(View.GONE);
+        //headerViewHolder.llBindAli.setVisibility(View.GONE);
+        ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) headerViewHolder.line.getLayoutParams();
+//        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+        params.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, mContext.getResources().getDisplayMetrics());
+        Log.e("help", "--" + redPacketInfo.aliUserStatus);
         switch (redPacketInfo.aliUserStatus) {
             case ALI_USER_STATUS_BOUND:
                 headerViewHolder.tvAliAccountHint.setVisibility(View.VISIBLE);
-                headerViewHolder.llShowAli.setVisibility(View.VISIBLE);
+                headerViewHolder.tvAliAccount.setVisibility(View.VISIBLE);
                 headerViewHolder.tvAliAccount.setText(RPPreferenceManager.getInstance().getAliAccount());
-                headerViewHolder.llShowAli.setOnClickListener(new View.OnClickListener() {
+                headerViewHolder.tvAliAccount.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mOnAliUserClickListener.onAliUserClick(v, false);
                     }
                 });
+                params.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, mContext.getResources().getDisplayMetrics());
                 break;
             case ALI_USER_STATUS_UNBOUND:
-                headerViewHolder.llBindAli.setVisibility(View.VISIBLE);
+                headerViewHolder.tvBindAliHint.setVisibility(View.VISIBLE);
+                headerViewHolder.btnBindAli.setVisibility(View.VISIBLE);
                 headerViewHolder.btnBindAli.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         mOnAliUserClickListener.onAliUserClick(v, true);
                     }
                 });
+                params.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 80, mContext.getResources().getDisplayMetrics());
                 break;
         }
+        headerViewHolder.line.setLayoutParams(params);
         if (!TextUtils.isEmpty(mCurrentAvatarUrl)) {
             Glide.with(mContext).load(mCurrentAvatarUrl)
                     .error(R.drawable.rp_avatar)
@@ -237,13 +250,15 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         TextView tvTotalMoney;
         TextView tvAliAccountHint;
         TextView tvAliAccount;
+        TextView tvBindAliHint;
         ImageView ivAvatar;
-        ImageView ivUnbindAli;
+        // ImageView ivUnbindAli;
         TextView tvBestCount;
         TextView tvNoRedPacket;
         Button btnBindAli;
-        LinearLayout llBindAli;
-        LinearLayout llShowAli;
+        View line;
+        // LinearLayout llBindAli;
+        // LinearLayout llShowAli;
 
 
         HeaderViewHolder(View v) {
@@ -257,13 +272,15 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             tvTotalMoney = (TextView) v.findViewById(R.id.tv_received_money_amount);
             tvAliAccountHint = (TextView) v.findViewById(R.id.tv_ali_account_hint);
             tvAliAccount = (TextView) v.findViewById(R.id.tv_ali_account_name);
+            tvBindAliHint = (TextView) v.findViewById(R.id.tv_bind_ali_account_hint);
             ivAvatar = (ImageView) v.findViewById(R.id.iv_avatar);
-            ivUnbindAli = (ImageView) v.findViewById(R.id.iv_unbind_ali_account);
+            //ivUnbindAli = (ImageView) v.findViewById(R.id.iv_unbind_ali_account);
             tvBestCount = (TextView) v.findViewById(R.id.tv_best_count);
             tvNoRedPacket = (TextView) v.findViewById(R.id.tv_record_no_rp);
-            llBindAli = (LinearLayout) v.findViewById(R.id.ll_bind_ali);
+            //llBindAli = (LinearLayout) v.findViewById(R.id.ll_bind_ali);
             btnBindAli = (Button) v.findViewById(R.id.btn_bind_ali_account);
-            llShowAli = (LinearLayout) v.findViewById(R.id.ll_show_ali);
+            line = v.findViewById(R.id.item_line);
+            //llShowAli = (LinearLayout) v.findViewById(R.id.ll_show_ali);
         }
     }
 

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/rp_money_white"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        style="@style/AvatarIconStyle"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/rp_avatar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ellipsize="middle"
+        android:maxEms="15"
+        android:maxLines="1"
+        android:text="@string/name_str_format_received"
+        android:textColor="@color/rp_text_black"
+        android:textSize="@dimen/font45px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+        />
+
+    <TextView
+        android:id="@+id/tv_received_money_amount"
+        style="@style/ReceivedMoneyStyle"
+        android:includeFontPadding="false"
+        android:text="@string/rp_str_amount_zero"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"/>
+
+    <TextView
+        android:id="@+id/tv_ali_account_hint"
+        style="@style/RecordReceivedCountTextStyle"
+        android:text="@string/str_receive_rp_auto_ali"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_received_money_amount"
+        />
+
+    <TextView
+        android:id="@+id/tv_ali_account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawablePadding="@dimen/size9px"
+        android:drawableRight="@drawable/rp_arrow_forward_blue"
+        android:textColor="@color/rp_button_blue"
+        android:textSize="@dimen/font36px"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ali_account_hint"/>
+
+    <Button
+        android:id="@+id/btn_bind_ali_account"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/size114px"
+        android:layout_marginLeft="105dp"
+        android:layout_marginRight="105dp"
+        android:layout_marginTop="@dimen/size15px"
+        android:background="@drawable/rp_stroke_red_selector"
+        android:text="@string/btn_bind_ali"
+        android:textColor="@color/rp_tv_red_selector"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_received_money_amount"/>
+
+    <TextView
+        android:id="@+id/tv_bind_ali_account_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size36px"
+        android:text="@string/str_authorized_record_rp"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font36px"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_bind_ali_account"
+        app:layout_goneMarginTop="@dimen/size30px"
+        />
+
+
+    <View
+        android:id="@+id/item_line"
+        style="@style/DividerStyle"
+        app:layout_constraintTop_toBottomOf="@+id/tv_received_money_amount"
+        />
+
+    <TextView
+        android:id="@+id/tv_received_count"
+        style="@style/RecordReceivedCountStyle"
+        android:layout_marginTop="@dimen/size30px"
+        android:text="0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_line_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/item_line"/>
+
+    <TextView
+        android:id="@+id/tv_received_rp"
+        style="@style/RecordReceivedCountTextStyle"
+        android:layout_marginTop="0dp"
+        android:text="@string/money_received"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font45px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/item_line_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/tv_received_count"
+        />
+
+    <View
+        android:id="@+id/item_line_vertical"
+        android:layout_width="1px"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/size30px"
+        android:layout_marginTop="10dp"
+        android:background="@color/rp_divider_color"
+        app:layout_constraintBottom_toTopOf="@+id/item_line_two"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_line"/>
+
+
+    <TextView
+        android:id="@+id/tv_best_count"
+        style="@style/RecordReceivedCountStyle"
+        android:layout_marginTop="@dimen/size30px"
+        android:text="0"
+        app:layout_constraintLeft_toRightOf="@+id/item_line_vertical"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/item_line"/>
+
+    <TextView
+        style="@style/RecordReceivedCountTextStyle"
+        android:layout_marginTop="0dp"
+        android:text="@string/best_luck"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font45px"
+        app:layout_constraintLeft_toRightOf="@+id/item_line_vertical"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_best_count"
+        />
+
+    <View
+        android:id="@+id/item_line_two"
+        style="@style/DividerStyle"
+        android:layout_marginTop="@dimen/size30px"
+        app:layout_constraintTop_toBottomOf="@+id/tv_received_rp"
+        />
+
+    <TextView
+        android:id="@+id/tv_record_no_rp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="30dp"
+        android:text="@string/str_your_not_rp"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font36px"
+        android:visibility="gone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_line_two"
+        />
+</android.support.constraint.ConstraintLayout>
