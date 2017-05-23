@@ -42,21 +42,15 @@
         android:layout_below="@id/money_layout"
         android:layout_marginTop="@dimen/size45px"
         android:background="@color/rp_money_white">
-
-        <RelativeLayout
+        <ImageView
             android:id="@+id/btn_layout"
             android:layout_width="@dimen/size186px"
             android:layout_height="@dimen/size186px"
-            android:layout_alignParentRight="true"
             android:layout_centerInParent="true"
-            android:clickable="true">
+            android:layout_alignParentRight="true"
+            android:scaleType="centerInside"
+            android:src="@drawable/rp_refresh" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:background="@drawable/rp_refresh" />
-        </RelativeLayout>
 
         <View
             android:id="@+id/view_line_single"

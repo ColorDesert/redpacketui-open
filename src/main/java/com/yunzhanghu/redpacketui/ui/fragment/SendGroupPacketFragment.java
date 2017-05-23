@@ -408,7 +408,7 @@ public class SendGroupPacketFragment extends SendPacketBaseFragment {
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.rp_fragment_group_chat_packet;
+        return R.layout.rp_fragment_group_chat_packet_dev;
     }
 
 

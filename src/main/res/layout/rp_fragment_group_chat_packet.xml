@@ -9,7 +9,10 @@
         android:id="@+id/group_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/pop_layout"
+        android:layout_toEndOf="@+id/pop_layout">
 
         <RelativeLayout
             android:id="@+id/layout_members"
@@ -85,7 +88,10 @@
             <RelativeLayout
                 android:id="@+id/money_amount_layout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true">
 
                 <TextView
                     android:id="@+id/tv_total_money"
@@ -143,21 +149,28 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size45px"
             android:background="@color/rp_money_white">
-
-            <RelativeLayout
+            <ImageView
                 android:id="@+id/btn_layout"
                 android:layout_width="@dimen/size186px"
                 android:layout_height="@dimen/size186px"
                 android:layout_alignParentRight="true"
                 android:layout_centerInParent="true"
-                android:clickable="true">
+                android:scaleType="centerInside"
+                android:src="@drawable/rp_refresh"/>
+            <!--<RelativeLayout-->
+                <!--android:id="@+id/btn_layout"-->
+                <!--android:layout_width="@dimen/size186px"-->
+                <!--android:layout_height="@dimen/size186px"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerInParent="true"-->
+                <!--android:clickable="true">-->
 
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/rp_refresh" />
-            </RelativeLayout>
+                <!--<ImageView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_centerInParent="true"-->
+                    <!--android:background="@drawable/rp_refresh" />-->
+            <!--</RelativeLayout>-->
 
             <View
                 android:id="@+id/view_line_group"

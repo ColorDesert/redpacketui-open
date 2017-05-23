@@ -1,8 +1,12 @@
 package com.yunzhanghu.redpacketui.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.Spanned;
 import android.text.TextUtils;
+import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,10 +57,10 @@ public class SendRecordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         RecyclerView.ViewHolder holder = null;
         View view;
         if (viewType == TYPE_HEADER) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_send_record_list_header, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_send_record_list_header_dev, parent, false);
             holder = new HeaderViewHolder(view);
         } else if (viewType == TYPE_ITEM) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_send_record_list_item, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_send_record_list_item_dev, parent, false);
             holder = new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_record_list_footer, parent, false);
@@ -82,9 +86,12 @@ public class SendRecordAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     private void setHeaderViews(HeaderViewHolder headerViewHolder, int position) {
         RedPacketInfo redPacketInfo = mList.get(position);
-        headerViewHolder.tvUserName.setText(mCurrentUserName);
+        headerViewHolder.tvUserName.setText(String.format(mContext.getString(R.string.name_str_format_send), mCurrentUserName));
         headerViewHolder.tvTotalMoney.setText(String.format("￥%s", redPacketInfo.totalMoney));
-        headerViewHolder.tvTotalCount.setText(String.valueOf(redPacketInfo.totalCount));
+        SpannableString spannableString = new SpannableString(String.format(mContext.getString(R.string.money_send), redPacketInfo.totalCount));
+        int end = String.valueOf(redPacketInfo.takenCount).length() + 5;
+        spannableString.setSpan(new ForegroundColorSpan(ContextCompat.getColor(mContext, R.color.rp_money_red_light)), 4, end, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        headerViewHolder.tvTotalCount.setText(spannableString);
         if (!TextUtils.isEmpty(mCurrentAvatarUrl)) {
             Glide.with(mContext).load(mCurrentAvatarUrl)
                     .error(R.drawable.rp_avatar)

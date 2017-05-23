@@ -23,8 +23,8 @@
     <string name="input_money_zero">红包金额不能为0</string>
     <string name="input_money_error">金额输入错误</string>
     <string name="default_money_greeting">恭喜发财，大吉大利！</string>
-    <string name="name_str_format_received">共收到</string>
-    <string name="name_str_format_send">共发出</string>
+    <string name="name_str_format_received">%1$s共收到</string>
+    <string name="name_str_format_send">%1$s共发出</string>
     <string name="money_detail_money_unit">%1$s元</string>
     <string name="detail_money_sign">￥%1$s</string>
     <string name="btn_text_open_money">拆红包</string>
@@ -60,7 +60,7 @@
     <string name="money_username_format">的红包</string>
     <string name="send_money_bottom_text">未领取的红包，将于24小时后发起退款</string>
     <string name="money_received">收到红包</string>
-    <string name="money_send">发出红包</string>
+    <string name="money_send">发出红包%1$d个</string>
     <string name="money_received_text">收到的红包</string>
     <string name="money_send_text">发出的红包</string>
     <string name="money_record_status_all">已领完%1$s/%2$s个</string>

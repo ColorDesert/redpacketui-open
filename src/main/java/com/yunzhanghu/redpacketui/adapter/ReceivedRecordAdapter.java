@@ -5,7 +5,6 @@ import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -131,7 +130,6 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) headerViewHolder.line.getLayoutParams();
 //        ConstraintLayout.LayoutParams params = new ConstraintLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
         params.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, mContext.getResources().getDisplayMetrics());
-        Log.e("help", "--" + redPacketInfo.aliUserStatus);
         switch (redPacketInfo.aliUserStatus) {
             case ALI_USER_STATUS_BOUND:
                 headerViewHolder.tvAliAccountHint.setVisibility(View.VISIBLE);

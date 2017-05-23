@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/rp_money_white"
-    android:orientation="vertical">
+    android:background="@color/rp_money_white">
 
 
     <ImageView
@@ -22,9 +21,9 @@
         android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/size27px"
         android:ellipsize="middle"
-        android:maxEms="15"
+        android:maxEms="10"
         android:maxLines="1"
         android:text="@string/name_str_format_received"
         android:textColor="@color/rp_text_black"

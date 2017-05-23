@@ -50,36 +50,42 @@
         android:id="@+id/tv_send_money_amount"
         style="@style/ReceivedMoneyStyle"
         />
+    <TextView
+        android:id="@+id/tv_send_money_count"
+        style="@style/UserNameStyle"
+        android:text="@string/money_send"
+        android:layout_marginTop="0dp"
+        android:textColor="@color/rp_text_light_grey"
+        />
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="center"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal"-->
+        <!--&gt;-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="horizontal"
-        >
+        <!--<TextView-->
+            <!--style="@style/UserNameStyle"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:text="@string/money_send"-->
+            <!--android:textColor="@color/rp_text_light_grey"-->
+            <!--/>-->
 
-        <TextView
-            style="@style/UserNameStyle"
-            android:layout_marginTop="0dp"
-            android:text="@string/money_send"
-            android:textColor="@color/rp_text_light_grey"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/tv_send_money_count"-->
+            <!--style="@style/UserNameStyle"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:textColor="@color/rp_money_red_light"-->
+            <!--/>-->
 
-        <TextView
-            android:id="@+id/tv_send_money_count"
-            style="@style/UserNameStyle"
-            android:layout_marginTop="0dp"
-            android:textColor="@color/rp_money_red_light"
-            />
-
-        <TextView
-            style="@style/UserNameStyle"
-            android:layout_marginTop="0dp"
-            android:text="@string/count_unit"
-            android:textColor="@color/rp_text_light_grey"
-            />
-    </LinearLayout>
+        <!--<TextView-->
+            <!--style="@style/UserNameStyle"-->
+            <!--android:layout_marginTop="0dp"-->
+            <!--android:text="@string/count_unit"-->
+            <!--android:textColor="@color/rp_text_light_grey"-->
+            <!--/>-->
+    <!--</LinearLayout>-->
 
     <View
         style="@style/DividerStyle"

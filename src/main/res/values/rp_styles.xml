@@ -4,32 +4,31 @@
 
     <style name="SendMoneyLeftTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentLeft">true</item>
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">15dp</item>
+        <item name="android:background">@color/rp_background_white</item>
         <item name="android:textColor">@color/rp_text_black</item>
         <item name="android:textSize">15sp</item>
     </style>
 
     <style name="SendMoneyEditTextStyle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:layout_marginRight">10dp</item>
-        <item name="android:background">@null</item>
-        <item name="android:gravity">right</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:background">@color/rp_background_white</item>
+        <item name="android:gravity">center_vertical|right</item>
         <item name="android:textColor">@color/rp_text_black</item>
         <item name="android:textSize">15sp</item>
     </style>
 
     <style name="SendMoneyRightTextViewStyle">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_alignParentRight">true</item>
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:layout_marginRight">14dp</item>
+        <item name="android:layout_height">44dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingRight">14dp</item>
+        <item name="android:background">@color/rp_background_white</item>
         <item name="android:textColor">@color/rp_text_black</item>
         <item name="android:textSize">18sp</item>
     </style>
@@ -51,7 +50,7 @@
         <item name="android:background">@color/rp_money_white</item>
         <item name="android:gravity">top</item>
         <item name="android:textSize">15sp</item>
-        <item name="android:padding">14dp</item>
+        <item name="android:padding">15dp</item>
     </style>
 
     <style name="SendMoneyRLayoutStyle">
@@ -71,7 +70,7 @@
     </style>
 
     <style name="DividerStyle">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">1px</item>
         <item name="android:background">@color/rp_divider_color</item>
     </style>
