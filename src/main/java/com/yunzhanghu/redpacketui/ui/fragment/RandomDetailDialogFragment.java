@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -64,7 +63,7 @@ public class RandomDetailDialogFragment extends RPBaseDialogFragment implements 
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.rp_random_detail_dialog;
+        return R.layout.rp_random_detail_dialog_dev;
     }
 
     @Override
@@ -77,18 +76,16 @@ public class RandomDetailDialogFragment extends RPBaseDialogFragment implements 
         View closeLayout = view.findViewById(R.id.iv_random_detail_closed);
         TextView toUserName = (TextView) view.findViewById(R.id.tv_random_detail_username);
         TextView randomGreeting = (TextView) view.findViewById(R.id.tv_random_detail_greeting);
-        mAvatarView = view.findViewById(R.id.layout_random_detail_avatar);
+        mAvatarView = view.findViewById(R.id.iv_rd_avatar_bg);
         ImageView toAvatar = (ImageView) view.findViewById(R.id.iv_random_detail_avatar);
         TextView randomAmount = (TextView) view.findViewById(R.id.tv_random_detail_amount);
         TextView randomState = (TextView) view.findViewById(R.id.tv_random_detail_state);
-        LinearLayout randomFromLayout = (LinearLayout) view.findViewById(R.id.ll_random_detail_switch);
         ImageView fromAvatar = (ImageView) view.findViewById(R.id.iv_random_detail_from_icon);
         TextView fromUserName = (TextView) view.findViewById(R.id.tv_random_detail_from_name);
         int status = mRandomDetail.status;
 
         closeLayout.setOnClickListener(this);
         if (mRandomDetail.messageDirect.equals(RPConstant.MESSAGE_DIRECT_RECEIVE)) {
-            randomFromLayout.setVisibility(View.VISIBLE);
             if (!TextUtils.isEmpty(mRandomDetail.senderAvatarUrl)) {
                 Glide.with(mContext).load(mRandomDetail.senderAvatarUrl)
                         .error(R.drawable.rp_avatar)
@@ -109,7 +106,8 @@ public class RandomDetailDialogFragment extends RPBaseDialogFragment implements 
                 randomState.setText(R.string.random_status_out);
             }
         } else {
-            randomFromLayout.setVisibility(View.GONE);
+            fromAvatar.setVisibility(View.VISIBLE);
+            fromUserName.setVisibility(View.VISIBLE);
             if (status == RPConstant.RED_PACKET_STATUS_RECEIVABLE) {//可领取
                 randomState.setText(R.string.random_status_no_taken);
             } else if (status == RPConstant.RED_PACKET_STATUS_RECEIVED) {//已经领过
@@ -158,7 +156,7 @@ public class RandomDetailDialogFragment extends RPBaseDialogFragment implements 
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.rl_random_detail_closed) {
+        if (v.getId() == R.id.iv_random_detail_closed) {
             dismiss();
         }
     }

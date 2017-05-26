@@ -114,7 +114,6 @@ public class RedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacketC
                     .transform(new CircleTransform(mContext))
                     .into(ivAvatar);
         }
-        RPPreferenceManager.getInstance().setOpenUrl("http://image.baidu.com/search/detail?ct=503316480&z=undefined&tn=baiduimagedetail&ipn=d&word=%E5%B0%8F%E6%B8%85%E6%96%B0&step_word=&ie=utf-8&in=&cl=2&lm=-1&st=-1&cs=3078336511,3371836423&os=2317557724,2741363486&simid=3414036954,487551771&pn=8&rn=1&di=40800126840&ln=1938&fr=&fmq=1495765469524_R&fm=rs4&ic=undefined&s=undefined&se=&sme=&tab=0&width=undefined&height=undefined&face=undefined&is=0,0&istype=0&ist=&jit=&bdtype=0&spn=0&pi=0&gsm=0&oriquery=%E5%9B%BE%E7%89%87&objurl=http%3A%2F%2Fcdnq.duitang.com%2Fuploads%2Fitem%2F201507%2F04%2F20150704223530_zWVC5.jpeg&rpstart=0&rpnum=0&adpicid=0");
         if (!TextUtils.isEmpty(RPPreferenceManager.getInstance().getOpenUrl())) {
             Glide.with(mContext).load(RPPreferenceManager.getInstance().getOpenUrl())
                     .error(R.drawable.rp_open_packet_bg)

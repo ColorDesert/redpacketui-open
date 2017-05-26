@@ -1,31 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="@color/rp_money_white"
-              android:orientation="vertical">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/rp_money_white">
 
-    <RelativeLayout
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/size216px"
+        android:background="@drawable/rp_packet_group_detail_bg"/>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/size216px"
-            android:background="@drawable/rp_packet_group_detail_bg"/>
-
-        <ImageView
-            android:id="@+id/iv_avatar"
-            style="@style/AvatarIconStyle"
-            android:layout_marginTop="@dimen/size129px"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/rp_avatar"/>
-    </RelativeLayout>
-
+    <ImageView
+        android:id="@+id/iv_avatar"
+        style="@style/AvatarIconStyle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size129px"
+        android:src="@drawable/rp_avatar"/>
 
     <LinearLayout
+        android:id="@+id/layout_who_rp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/iv_avatar"
         android:layout_marginTop="@dimen/size27px"
         android:gravity="center"
         android:orientation="horizontal">
@@ -53,8 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/size18px"
-            android:src="@drawable/rp_random_icon"
-            android:visibility="visible"/>
+            android:visibility="gone"/>
     </LinearLayout>
 
 
@@ -62,7 +57,8 @@
         android:id="@+id/tv_greeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_below="@id/layout_who_rp"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/size42px"
         android:layout_marginTop="@dimen/size18px"
         android:ellipsize="end"
@@ -75,47 +71,40 @@
     <TextView
         android:id="@+id/tv_money_amount"
         style="@style/ReceivedMoneyStyle"
+        android:layout_below="@id/tv_greeting"
+        android:layout_centerHorizontal="true"
         android:text="￥123"/>
 
     <TextView
         android:id="@+id/tv_money_use"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_below="@id/tv_money_amount"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/size30px"
         android:layout_marginTop="@dimen/size18px"
         android:text="@string/money_detail_use"
         android:textColor="@color/rp_text_light_grey"
         android:textSize="@dimen/font36px"/>
 
-    <!--<LinearLayout-->
-        <!--android:id="@+id/status_layout"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:background="@color/rp_money_bg_color"-->
-        <!--android:orientation="vertical">-->
+    <TextView
+        android:id="@+id/tv_money_status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_money_use"
+        android:background="@color/rp_money_bg_color"
+        android:paddingBottom="@dimen/size24px"
+        android:paddingLeft="@dimen/size48px"
+        android:paddingTop="@dimen/size45px"
+        android:text="@string/money_status_no_taken"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font36px"/>
 
-        <!--<View-->
-        <!--style="@style/DividerStyle"-->
-        <!--/>-->
+    <View
+        android:id="@+id/view_bottom_line"
+        style="@style/DividerStyle"
+        android:layout_width="match_parent"
+        android:layout_below="@id/tv_money_status"
+        />
 
-        <TextView
-            android:id="@+id/tv_money_status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/size48px"
-            android:paddingBottom="@dimen/size24px"
-            android:paddingTop="@dimen/size45px"
-            android:text="@string/money_status_no_taken"
-            android:textColor="@color/rp_text_light_grey"
-            android:background="@color/rp_money_bg_color"
-            android:textSize="@dimen/font36px"/>
-
-        <View
-            style="@style/DividerStyle"
-            android:layout_width="match_parent"
-            android:background="@color/rp_money_red_light"
-            />
-    <!--</LinearLayout>-->
-
-</LinearLayout>
+</RelativeLayout>

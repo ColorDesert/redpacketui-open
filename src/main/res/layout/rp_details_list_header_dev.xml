@@ -118,6 +118,7 @@
         />
 
     <View
+        android:id="@+id/view_bottom_line"
         style="@style/DividerStyle"
         android:layout_width="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"

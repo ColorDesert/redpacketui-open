@@ -205,7 +205,7 @@ public class SendSinglePacketFragment extends SendPacketBaseFragment {
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.rp_fragment_single_chat_packet;
+        return R.layout.rp_fragment_single_chat_packet_dev;
     }
 
 

@@ -98,11 +98,13 @@ public class SingleDetailFragment extends RPBaseFragment implements View.OnClick
             mTvItemAmount.setText(String.format(getString(R.string.detail_money_sign), mRedPacketInfo.redPacketAmount));
             mTvMoneyAmount.setVisibility(View.GONE);
             mTvMoneyStatus.setVisibility(View.VISIBLE);
+            view.findViewById(R.id.view_bottom_line).setVisibility(View.VISIBLE);
             mTvMoneyUse.setVisibility(View.GONE);
             tvCheckRecords.setVisibility(View.GONE);
         } else if (mRedPacketInfo.messageDirect.equals(RPConstant.MESSAGE_DIRECT_RECEIVE)) {
             //红包接收者看到的红包详情内容
             mTvMoneyStatus.setVisibility(View.GONE);
+            view.findViewById(R.id.view_bottom_line).setVisibility(View.GONE);
             mLayoutItem.setVisibility(View.GONE);
             mTvMoneyUse.setVisibility(View.VISIBLE);
             mTvSender.setText(mRedPacketInfo.senderNickname);

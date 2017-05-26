@@ -108,18 +108,17 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
 
     @Override
     protected void initViewsAndEvents(View view, Bundle savedInstanceState) {
-        mAvatarView = (ImageView) view.findViewById(R.id.iv_avatar);
+        mAvatarView = (ImageView) view.findViewById(R.id.iv_exclusive_avatar);
         mLayoutAvatar = (FrameLayout) view.findViewById(R.id.layout_exclusive_avatar);
         mBtnOpen = (Button) view.findViewById(R.id.btn_exclusive_open_money);
         mTvGreeting = (TextView) view.findViewById(R.id.tv_exclusive_greeting);
         mTvAmount = (TextView) view.findViewById(R.id.tv_exclusive_amount);
         tvUserName = (TextView) view.findViewById(R.id.tv_exclusive_username);
         tvTitle = (TextView) view.findViewById(R.id.tv_exclusive_title);
-        View closeLayout = view.findViewById(R.id.iv_exclusive_closed);
-        ImageView ivOpenBg = (ImageView) view.findViewById(R.id.iv_open_bg);
+        ImageView ivOpenBg = (ImageView) view.findViewById(R.id.iv_exclusive_open_bg);
         ImageView mIvSendAvatar = (ImageView) view.findViewById(R.id.iv_send_avatar);
         ImageView mIvReceiveAvatar = (ImageView) view.findViewById(R.id.iv_receive_avatar);
-        closeLayout.setOnClickListener(this);
+        view.findViewById(R.id.iv_exclusive_closed).setOnClickListener(this);
         mBtnOpen.setOnClickListener(this);
         if (!TextUtils.isEmpty(mRedPacketInfo.senderAvatarUrl)) {
             Glide.with(mContext).load(mRedPacketInfo.senderAvatarUrl)
@@ -135,6 +134,7 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
                     .transform(new CircleTransform(mContext))
                     .into(mIvReceiveAvatar);
         }
+
         if (!TextUtils.isEmpty(RPPreferenceManager.getInstance().getOpenUrl())) {
             Glide.with(mContext).load(RPPreferenceManager.getInstance().getOpenUrl())
                     .error(R.drawable.rp_open_packet_bg)
@@ -145,6 +145,10 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
         if (status == RPConstant.RED_PACKET_STATUS_EXPIRED) {//红包过期
             mBtnOpen.setVisibility(View.GONE);
             tvTitle.setVisibility(View.GONE);
+            tvUserName.setVisibility(View.GONE);
+            mLayoutAvatar.setVisibility(View.GONE);
+            mTvGreeting.setVisibility(View.VISIBLE);
+            mTvGreeting.setText(mContext.getString(R.string.money_expired_str));
             return;
         }
         if (!TextUtils.equals(mCurrentUserId, mRedPacketInfo.receiverId)) {//不是专属红包接受者
@@ -183,7 +187,7 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
                 dismiss();
             } else if (mBtnState == 2) {//偷看一下
                 mBtnOpen.setClickable(false);
-                mLayoutAvatar.findViewById(R.id.layout_exclusive_avatar).setVisibility(View.GONE);
+                mLayoutAvatar.setVisibility(View.GONE);
                 tvUserName.setVisibility(View.GONE);
                 tvTitle.setVisibility(View.GONE);
                 mTvGreeting.setVisibility(View.VISIBLE);

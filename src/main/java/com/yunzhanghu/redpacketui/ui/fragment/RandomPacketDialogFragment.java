@@ -78,7 +78,7 @@ public class RandomPacketDialogFragment extends RPBaseDialogFragment<SendPacketC
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.rp_random_dialog;
+        return R.layout.rp_random_dialog_dev;
     }
 
     @Override
@@ -121,8 +121,7 @@ public class RandomPacketDialogFragment extends RPBaseDialogFragment<SendPacketC
     }
 
     private void initView(View view) {
-        mAvatarView = view.findViewById(R.id.layout_random_avatar);
-        View closeLayout = view.findViewById(R.id.rl_random_closed);
+        mAvatarView = view.findViewById(R.id.iv_random_avatar_bg);
         View switchPacket = view.findViewById(R.id.tv_random_packet);
         mSwitchAmount = view.findViewById(R.id.tv_random_switch);
         TextView tvUserName = (TextView) view.findViewById(R.id.tv_random_username);
@@ -131,7 +130,7 @@ public class RandomPacketDialogFragment extends RPBaseDialogFragment<SendPacketC
         mBtnSend = (Button) view.findViewById(R.id.btn_random);
         ImageView ivAvatar = (ImageView) view.findViewById(R.id.iv_random_avatar);
 
-        closeLayout.setOnClickListener(this);
+        view.findViewById(R.id.iv_random_closed).setOnClickListener(this);
         switchPacket.setOnClickListener(this);
         mSwitchAmount.setOnClickListener(this);
         mBtnSend.setOnClickListener(this);
@@ -197,7 +196,7 @@ public class RandomPacketDialogFragment extends RPBaseDialogFragment<SendPacketC
     public void onClick(View v) {
         if (ClickUtil.isFastClick()) return;
         int i = v.getId();
-        if (i == R.id.rl_random_closed) {//关闭对话框
+        if (i == R.id.iv_random_closed) {//关闭对话框
             dismiss();
         } else if (i == R.id.tv_random_packet) {//切换到普通红包
             dismiss();
