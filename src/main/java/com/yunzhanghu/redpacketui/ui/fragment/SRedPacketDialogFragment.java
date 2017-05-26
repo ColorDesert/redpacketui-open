@@ -98,7 +98,7 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
 
     @Override
     protected int getContentViewLayoutID() {
-        return R.layout.rp_open_exclusive_packet_dialog;
+        return R.layout.rp_open_exclusive_packet_dialog_dev;
     }
 
     @Override
@@ -115,7 +115,7 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
         mTvAmount = (TextView) view.findViewById(R.id.tv_exclusive_amount);
         tvUserName = (TextView) view.findViewById(R.id.tv_exclusive_username);
         tvTitle = (TextView) view.findViewById(R.id.tv_exclusive_title);
-        View closeLayout = view.findViewById(R.id.layout_exclusive_closed);
+        View closeLayout = view.findViewById(R.id.iv_exclusive_closed);
         ImageView ivOpenBg = (ImageView) view.findViewById(R.id.iv_open_bg);
         ImageView mIvSendAvatar = (ImageView) view.findViewById(R.id.iv_send_avatar);
         ImageView mIvReceiveAvatar = (ImageView) view.findViewById(R.id.iv_receive_avatar);
@@ -195,7 +195,7 @@ public class SRedPacketDialogFragment extends RPBaseDialogFragment<ReceivePacket
                 mBtnOpen.setClickable(true);
             }
 
-        } else if (v.getId() == R.id.layout_exclusive_closed) {
+        } else if (v.getId() == R.id.iv_exclusive_closed) {
             dismiss();
         }
     }

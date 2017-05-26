@@ -9,15 +9,15 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yunzhanghu.redpacketsdk.constant.RPConstant;
@@ -42,6 +42,10 @@ public class PayTipsDialogFragment extends DialogFragment implements View.OnClic
     private String mPayStatus = "-1";
 
     private OnDialogConfirmClickCallback mCallback;
+
+    private ConstraintSet mConstraintSet;
+
+    private ConstraintLayout mConstraintLayout;
 
     public static PayTipsDialogFragment newInstance(String status, String message) {
         PayTipsDialogFragment payTipsDialogFragment = new PayTipsDialogFragment();
@@ -95,7 +99,7 @@ public class PayTipsDialogFragment extends DialogFragment implements View.OnClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         keepFontSize();//保持字体不变
-        return inflater.inflate(R.layout.rp_pay_tips_dialog, container, false);
+        return inflater.inflate(R.layout.rp_pay_tips_dialog_dev, container, false);
     }
 
     @Override
@@ -105,7 +109,6 @@ public class PayTipsDialogFragment extends DialogFragment implements View.OnClic
     }
 
     private void initView(View view) {
-        View dividerView = view.findViewById(R.id.dialog_hint_divider);
         TextView buttonOk = (TextView) view.findViewById(R.id.btn_ok);
         buttonOk.setOnClickListener(this);
         TextView buttonCancel = (TextView) view.findViewById(R.id.btn_cancel);
@@ -113,10 +116,12 @@ public class PayTipsDialogFragment extends DialogFragment implements View.OnClic
         TextView tvTitle = (TextView) view.findViewById(R.id.tv_title);
         TextView tvMessage = (TextView) view.findViewById(R.id.tv_msg);
         String titleText = mContext.getString(R.string.hint_title);
+        mConstraintLayout = (ConstraintLayout) view.findViewById(R.id.constraint_main);
+        mConstraintSet = new ConstraintSet();
+        mConstraintSet.clone(mContext, R.layout.rp_pay_tips_dialog_dev);
         switch (mPayStatus) {
             case RPConstant.CLIENT_CODE_OTHER_ERROR:
-                buttonCancel.setVisibility(View.GONE);
-                dividerView.setVisibility(View.GONE);
+                setConstraintAttr();
                 buttonOk.setText(R.string.btn_know);
                 break;
             case RPConstant.CLIENT_CODE_ALI_NO_AUTHORIZED:
@@ -126,36 +131,26 @@ public class PayTipsDialogFragment extends DialogFragment implements View.OnClic
                 break;
             case RPConstant.CLIENT_CODE_CHECK_ALI_ORDER_ERROR:
                 titleText = mContext.getString(R.string.str_heck_ali_order_error_title);
-                buttonCancel.setVisibility(View.GONE);
-                dividerView.setVisibility(View.GONE);
+                setConstraintAttr();
                 buttonOk.setText(R.string.btn_know);
                 break;
             case RPConstant.CLIENT_CODE_ALI_PAY_CANCEL:
                 titleText = mContext.getString(R.string.str_ali_cancel_pay_title);
-                buttonCancel.setVisibility(View.GONE);
-                dividerView.setVisibility(View.GONE);
                 buttonOk.setText(R.string.btn_know);
+                setConstraintAttr();
                 break;
             case RPConstant.CLIENT_CODE_ALI_PAY_FAIL:
                 titleText = mContext.getString(R.string.str_ali_pay_fail_title);
-                buttonCancel.setVisibility(View.GONE);
-                dividerView.setVisibility(View.GONE);
                 buttonOk.setText(R.string.btn_know);
+                setConstraintAttr();
                 break;
             case RPConstant.CLIENT_CODE_ALI_AUTH_SUCCESS:
-                tvTitle.setVisibility(View.GONE);
-                LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) tvMessage.getLayoutParams();
-                params.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 38, getResources().getDisplayMetrics());
-                tvMessage.setLayoutParams(params);
-                buttonCancel.setVisibility(View.GONE);
-                dividerView.setVisibility(View.GONE);
+                mConstraintSet.setVisibility(R.id.tv_title,ConstraintSet.GONE);
                 buttonOk.setText(R.string.btn_know);
+                setConstraintAttr();
                 break;
             case RPConstant.CLIENT_CODE_AD_SHARE_SUCCESS:
-                tvTitle.setVisibility(View.GONE);
-                LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) tvMessage.getLayoutParams();
-                params1.topMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 38, getResources().getDisplayMetrics());
-                tvMessage.setLayoutParams(params1);
+                mConstraintSet.setVisibility(R.id.tv_title,ConstraintSet.GONE);
                 buttonOk.setText(R.string.ad_share);
                 break;
             case RPConstant.CLIENT_CODE_UNBIND_ALI_ACCOUNT:
@@ -165,13 +160,19 @@ public class PayTipsDialogFragment extends DialogFragment implements View.OnClic
                 buttonCancel.setText(R.string.btn_cancel);
                 break;
             default:
-                buttonCancel.setVisibility(View.GONE);
-                dividerView.setVisibility(View.GONE);
                 buttonOk.setText(R.string.btn_know);
+                setConstraintAttr();
                 break;
         }
         tvTitle.setText(titleText);
         tvMessage.setText(mMessage);
+    }
+
+    private void setConstraintAttr() {
+        mConstraintSet.setVisibility(R.id.btn_cancel, ConstraintSet.GONE);
+        mConstraintSet.setVisibility(R.id.dialog_hint_divider, ConstraintSet.GONE);
+        mConstraintSet.connect(R.id.btn_ok, ConstraintSet.LEFT, R.id.constraint_main, ConstraintSet.LEFT, 0);
+        mConstraintSet.applyTo(mConstraintLayout);
     }
 
     @Override

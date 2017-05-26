@@ -46,10 +46,10 @@ public class GroupDetailAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         RecyclerView.ViewHolder holder = null;
         View view;
         if (viewType == TYPE_HEADER) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_details_list_header, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_details_list_header_dev, parent, false);
             holder = new HeaderViewHolder(view);
         } else if (viewType == TYPE_ITEM) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_details_list_item, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_details_list_item_dev, parent, false);
             holder = new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_record_list_footer, parent, false);

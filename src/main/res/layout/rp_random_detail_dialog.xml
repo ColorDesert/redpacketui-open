@@ -2,29 +2,21 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="@dimen/dialogWidth"
                 android:layout_height="@dimen/dialogHeight"
-                android:layout_gravity="center"
                 android:background="@drawable/rp_small_random_bg">
 
 
-    <RelativeLayout
-        android:id="@+id/rl_random_detail_closed"
+    <ImageView
+        android:id="@+id/iv_random_detail_closed"
         android:layout_width="@dimen/size114px"
         android:layout_height="@dimen/size114px"
-        android:clickable="true">
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/rp_closed_yellow_icon"
-            android:scaleType="centerInside"/>
-    </RelativeLayout>
+        android:scaleType="centerInside"
+        android:src="@drawable/rp_closed_yellow_icon"/>
 
     <FrameLayout
         android:id="@+id/layout_random_detail_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/rl_random_detail_closed"
+        android:layout_below="@id/iv_random_detail_closed"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/size54px"
         android:background="@drawable/rp_bg_circular_yellow">
@@ -44,11 +36,11 @@
         android:layout_below="@id/layout_random_detail_avatar"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/size30px"
+        android:text="给沙漠的红包"
         android:ellipsize="end"
-        android:gravity="center"
         android:maxLines="1"
         android:textColor="@color/rp_money_white"
-        android:textSize="@dimen/font45px"/>
+        android:textSize="@dimen/font42px"/>
 
     <TextView
         android:id="@+id/tv_random_detail_greeting"
@@ -61,6 +53,8 @@
         android:ellipsize="end"
         android:gravity="center"
         android:maxEms="22"
+        android:maxLines="2"
+        android:text="恭喜大财"
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font69px"/>
 
@@ -71,7 +65,7 @@
         android:layout_below="@id/tv_random_detail_greeting"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/size15px"
-        android:gravity="center"
+        android:text="0.009"
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font108px"/>
 
@@ -82,7 +76,7 @@
         android:layout_below="@id/tv_random_detail_amount"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/size15px"
-        android:gravity="center"
+        android:text="成功领取"
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font39px"/>
 
@@ -108,6 +102,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/size15px"
             android:gravity="center"
+            android:text="XXX给你的红包"
             android:textColor="@color/rp_title_color"
             android:textSize="@dimen/font36px"/>
 

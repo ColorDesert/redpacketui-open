@@ -74,7 +74,7 @@ public class RandomDetailDialogFragment extends RPBaseDialogFragment implements 
 
     @Override
     protected void initViewsAndEvents(View view, Bundle savedInstanceState) {
-        View closeLayout = view.findViewById(R.id.rl_random_detail_closed);
+        View closeLayout = view.findViewById(R.id.iv_random_detail_closed);
         TextView toUserName = (TextView) view.findViewById(R.id.tv_random_detail_username);
         TextView randomGreeting = (TextView) view.findViewById(R.id.tv_random_detail_greeting);
         mAvatarView = view.findViewById(R.id.layout_random_detail_avatar);

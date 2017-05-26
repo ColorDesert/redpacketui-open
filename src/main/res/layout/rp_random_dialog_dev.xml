@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/random_rp_main"
+    android:layout_width="@dimen/dialogWidth"
+    android:layout_height="@dimen/dialogHeight"
+    android:layout_gravity="center"
+    android:background="@drawable/rp_small_random_bg">
+
+    <ImageView
+        android:id="@+id/iv_random_closed"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/rp_closed_yellow_icon"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_random_packet"
+        android:layout_width="0dp"
+        android:layout_height="38dp"
+        android:gravity="center_vertical|end"
+        android:layout_marginRight="@dimen/size24px"
+        android:text="@string/rp_str_switch_to_normal_packet"
+        android:textColor="@color/rp_switch_packet_red"
+        android:textSize="@dimen/font42px"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginEnd="@dimen/size24px"/>
+    <ImageView
+        android:id="@+id/iv_random_avatar_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size54px"
+        android:background="@drawable/rp_bg_circular_yellow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_random_closed"/>
+
+    <ImageView
+        android:id="@+id/iv_random_avatar"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/rp_avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_random_avatar_bg"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_random_avatar_bg"
+        app:layout_constraintRight_toRightOf="@+id/iv_random_avatar_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_random_avatar_bg"/>
+
+    <TextView
+        android:id="@+id/tv_random_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size30px"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/rp_money_white"
+        android:textSize="@dimen/font42px"
+        app:layout_constraintTop_toBottomOf="@+id/iv_random_avatar_bg"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_random_greeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxEms="22"
+        android:maxLines="2"
+        android:textColor="@color/rp_title_color"
+        android:textSize="@dimen/font69px"
+        android:layout_marginLeft="@dimen/size60px"
+        android:layout_marginRight="@dimen/size60px"
+        android:layout_marginTop="@dimen/size60px"
+        app:layout_constraintTop_toBottomOf="@+id/tv_random_username"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="@dimen/size60px"
+        android:layout_marginEnd="@dimen/size60px"/>
+
+    <TextView
+        android:id="@+id/tv_random_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/rp_title_color"
+        android:textSize="@dimen/font108px"
+        android:layout_marginTop="@dimen/size15px"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_random_greeting"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+
+    <TextView
+        android:id="@+id/tv_random_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/rp_small_random_switch"
+        android:drawableStart="@drawable/rp_small_random_switch"
+        android:drawablePadding="@dimen/size15px"
+        android:gravity="center"
+        android:text="@string/rp_str_switch_amount"
+        android:textColor="@color/rp_title_color"
+        android:textSize="@dimen/font45px"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_random_amount"/>
+
+    <Button
+        android:id="@+id/btn_random"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/font129px"
+        android:layout_marginLeft="@dimen/size225px"
+        android:layout_marginRight="@dimen/size225px"
+        android:layout_marginTop="@dimen/size69px"
+        android:background="@drawable/rp_btn_open_selector"
+        android:text="@string/send_money_title"
+        android:textColor="@color/rp_top_red_color"
+        android:textSize="@dimen/font54px"
+        app:layout_constraintTop_toBottomOf="@+id/tv_random_switch"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+    <LinearLayout
+        android:id="@+id/ll_random_loading"
+        android:layout_width="@dimen/size180px"
+        android:layout_height="@dimen/size180px"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

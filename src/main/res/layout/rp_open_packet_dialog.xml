@@ -2,32 +2,41 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="@dimen/dialogWidth"
                 android:layout_height="@dimen/dialogHeight"
+                android:background="@drawable/rp_open_packet_bg"
     >
 
+    <!--<ImageView-->
+    <!--android:id="@+id/iv_open_bg"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:background="@null"-->
+    <!--android:scaleType="fitXY"-->
+    <!--android:src="@drawable/rp_open_packet_bg"-->
+    <!--/>-->
+
+    <!--<RelativeLayout-->
+    <!--android:id="@+id/layout_closed"-->
+    <!--android:layout_width="@dimen/size114px"-->
+    <!--android:layout_height="@dimen/size114px"-->
+    <!--android:clickable="true"-->
+    <!--&gt;-->
+
+    <!--<ImageView-->
+    <!--android:id="@+id/layout_closed"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_centerInParent="true"-->
+    <!--android:background="@drawable/rp_closed_yellow_icon"-->
+    <!--android:scaleType="centerInside"-->
+    <!--/>-->
+    <!--</RelativeLayout>-->
     <ImageView
-        android:id="@+id/iv_open_bg"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@null"
-        android:scaleType="fitXY"
-        android:src="@drawable/rp_open_packet_bg"
-        />
-
-    <RelativeLayout
         android:id="@+id/layout_closed"
-        android:layout_width="@dimen/size114px"
-        android:layout_height="@dimen/size114px"
-        android:clickable="true"
-        >
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:background="@drawable/rp_closed_yellow_icon"
-            android:scaleType="centerInside"
-            />
-    </RelativeLayout>
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/rp_closed_yellow_icon"
+        />
 
     <FrameLayout
         android:id="@+id/layout_avatar"
@@ -60,6 +69,7 @@
         android:gravity="center"
         android:maxEms="10"
         android:maxLines="1"
+        android:text="哈哈哈"
         android:textColor="@color/rp_money_white"
         android:textSize="@dimen/font42px"
         />
@@ -88,10 +98,10 @@
         android:layout_marginLeft="@dimen/size60px"
         android:layout_marginRight="@dimen/size60px"
         android:layout_marginTop="@dimen/size60px"
+        android:ellipsize="end"
         android:gravity="center"
         android:lines="2"
         android:maxEms="22"
-        android:ellipsize="end"
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font69px"
         />
@@ -110,7 +120,7 @@
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font42px"
         />
-
+    <!--群红包用的到-->
 
     <Button
         android:id="@+id/btn_open_money"

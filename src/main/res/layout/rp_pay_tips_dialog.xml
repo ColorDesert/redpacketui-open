@@ -14,27 +14,30 @@
         android:textColor="@color/rp_text_black"
         android:textSize="@dimen/font48px" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="center"-->
+        <!--android:orientation="horizontal">-->
 
         <TextView
             android:id="@+id/tv_msg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/size114px"
+            android:text="hhhhhhhhh\n测试实施测哈哈哈哈哈哈哈\n愁啥呢"
             android:layout_marginLeft="@dimen/size99px"
             android:layout_marginRight="@dimen/size99px"
             android:layout_marginTop="@dimen/size57px"
+            android:layout_gravity="center_horizontal"
             android:textColor="@color/rp_text_grey"
             android:textSize="@dimen/font39px" />
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 
-    <View style="@style/DividerStyle" />
+    <View style="@style/DividerStyle"
+        android:layout_width="match_parent"/>
 
     <LinearLayout
         android:layout_width="match_parent"

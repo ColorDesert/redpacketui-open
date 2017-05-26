@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/common_rp_main"
+    android:layout_width="@dimen/dialogWidth"
+    android:layout_height="@dimen/dialogHeight"
+    >
+
+    <ImageView
+        android:id="@+id/iv_open_bg"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/rp_open_packet_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_common_closed"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/rp_closed_yellow_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
+        android:id="@+id/iv_avatar_bg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size63px"
+        android:background="@drawable/rp_bg_circular_yellow"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_common_closed"/>
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="66dp"
+        android:layout_height="66dp"
+        android:layout_gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/rp_avatar"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_avatar_bg"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_avatar_bg"
+        app:layout_constraintRight_toRightOf="@+id/iv_avatar_bg"
+        app:layout_constraintTop_toTopOf="@+id/iv_avatar_bg"/>
+
+    <TextView
+        android:id="@+id/tv_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size30px"
+        android:ellipsize="end"
+        android:maxEms="10"
+        android:maxLines="1"
+        android:textColor="@color/rp_money_white"
+        android:textSize="@dimen/font42px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar_bg"/>
+
+    <TextView
+        android:id="@+id/tv_open_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size9px"
+        android:maxLines="1"
+        android:paddingLeft="@dimen/size60px"
+        android:paddingRight="@dimen/size60px"
+        android:text="@string/send_you_money"
+        android:textColor="@color/rp_money_white"
+        android:textSize="@dimen/font42px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_username"/>
+
+
+    <TextView
+        android:id="@+id/tv_greeting"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/size60px"
+        android:layout_marginLeft="@dimen/size60px"
+        android:layout_marginRight="@dimen/size60px"
+        android:layout_marginStart="@dimen/size60px"
+        android:layout_marginTop="@dimen/size60px"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:lines="2"
+        android:maxEms="22"
+        android:textColor="@color/rp_title_color"
+        android:textSize="@dimen/font69px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_open_title"/>
+
+
+    <!--群红包用的到-->
+    <TextView
+        android:id="@+id/tv_check_lucky"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size90px"
+        android:text="@string/check_lucky"
+        android:textColor="@color/rp_title_color"
+        android:textSize="@dimen/font42px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_greeting"/>
+
+
+    <Button
+        android:id="@+id/btn_open_money"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="@dimen/size225px"
+        android:layout_marginLeft="@dimen/size225px"
+        android:layout_marginRight="@dimen/size225px"
+        android:layout_marginStart="@dimen/size225px"
+        android:layout_marginTop="@dimen/size69px"
+        android:background="@drawable/rp_btn_open_selector"
+        android:text="@string/btn_text_open_money"
+        android:textColor="@color/rp_top_red_color"
+        android:textSize="@dimen/font54px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_check_lucky"/>
+
+    <LinearLayout
+        android:id="@+id/target_layout"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>

@@ -4,9 +4,9 @@
     android:layout_height="60dp"
     android:background="@color/rp_money_white">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
         <ImageView
             android:id="@+id/iv_item_avatar_icon"
@@ -28,11 +28,13 @@
             android:ellipsize="end"
             android:maxEms="10"
             android:maxLines="1"
+            android:text="测试时"
             android:textColor="@color/rp_text_black"
             android:textSize="@dimen/font45px" />
 
         <TextView
             android:id="@+id/tv_time"
+            android:text="测试时"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@id/iv_item_avatar_icon"
@@ -50,6 +52,7 @@
             android:layout_alignParentRight="true"
             android:layout_alignTop="@id/tv_money_to_user"
             android:layout_marginRight="@dimen/size45px"
+            android:text="测试时qqq"
             android:textColor="@color/rp_text_black"
             android:textSize="@dimen/font45px" />
 
@@ -64,8 +67,8 @@
             android:drawablePadding="2dp"
             android:text="@string/best_luck"
             android:textColor="@color/rp_best_luck_yellow"
-            android:visibility="gone" />
-    </RelativeLayout>
+            android:visibility="visible" />
+    <!--</RelativeLayout>-->
 
     <View
         style="@style/DividerStyle"

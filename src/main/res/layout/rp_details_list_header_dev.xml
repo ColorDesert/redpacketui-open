@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/rp_money_white">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="72dp"
+        android:background="@drawable/rp_packet_group_detail_bg"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        style="@style/AvatarIconStyle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/size129px"
+        android:src="@drawable/rp_avatar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_money_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size27px"
+        android:ellipsize="end"
+        android:maxEms="10"
+        android:maxLines="1"
+        android:textColor="@color/rp_text_black"
+        android:textSize="@dimen/font45px"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/tv_who_rp"
+        app:layout_constraintTop_toBottomOf="@+id/iv_avatar"/>
+
+    <TextView
+        android:id="@+id/tv_who_rp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/money_username_format"
+        android:textColor="@color/rp_text_black"
+        android:textSize="@dimen/font45px"
+        app:layout_constraintLeft_toRightOf="@+id/tv_money_sender"
+        app:layout_constraintRight_toLeftOf="@+id/iv_group_random"
+        app:layout_constraintTop_toTopOf="@+id/tv_money_sender"
+        />
+
+    <ImageView
+        android:id="@+id/iv_group_random"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/size18px"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_money_sender"
+        app:layout_constraintLeft_toRightOf="@+id/tv_who_rp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_money_sender"
+        />
+
+
+    <TextView
+        android:id="@+id/tv_greeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size18px"
+        android:ellipsize="end"
+        android:maxEms="22"
+        android:maxLines="1"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font36px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_money_sender"/>
+
+    <TextView
+        android:id="@+id/tv_money_amount"
+        style="@style/ReceivedMoneyStyle"
+        android:layout_marginTop="@dimen/size42px"
+        android:text="￥0.01"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_greeting"/>
+
+    <TextView
+        android:id="@+id/tv_money_use"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size18px"
+        android:text="@string/money_detail_use"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font36px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_money_amount"/>
+
+    <TextView
+        android:id="@+id/tv_money_status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size30px"
+        android:background="@color/rp_money_bg_color"
+        android:paddingBottom="@dimen/size24px"
+        android:paddingLeft="@dimen/size48px"
+        android:paddingTop="@dimen/size45px"
+        android:text="@string/money_status_no_taken"
+        android:textColor="@color/rp_text_light_grey"
+        android:textSize="@dimen/font36px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_money_use"
+        />
+
+    <View
+        style="@style/DividerStyle"
+        android:layout_width="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_money_status"
+        />
+</android.support.constraint.ConstraintLayout>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:id="@+id/detail_loading_target"
-                xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/rp_money_red_light"
-                android:orientation="vertical"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/detail_loading_target"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/rp_money_red_light"
     >
 
     <ImageView
@@ -19,7 +19,7 @@
 
     <include
         android:id="@+id/layout_top"
-        layout="@layout/rp_details_list_header"
+        layout="@layout/rp_details_list_header_dev"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/title_bar"
@@ -27,7 +27,7 @@
 
     <include
         android:id="@+id/layout_item"
-        layout="@layout/rp_details_list_item"
+        layout="@layout/rp_details_list_item_dev"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_below="@id/layout_top"

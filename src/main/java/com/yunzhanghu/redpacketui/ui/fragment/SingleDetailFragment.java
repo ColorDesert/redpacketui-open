@@ -54,7 +54,6 @@ public class SingleDetailFragment extends RPBaseFragment implements View.OnClick
         TextView mTvMoneyUse = (TextView) view.findViewById(R.id.tv_money_use);
         TextView tvCheckRecords = (TextView) view.findViewById(R.id.tv_check_records);
         TextView mTvMoneyStatus = (TextView) view.findViewById(R.id.tv_money_status);
-        View statusLayout = view.findViewById(R.id.status_layout);
         View mLayoutItem = view.findViewById(R.id.layout_item);
         ImageView mIvReceiverAvatar = (ImageView) view.findViewById(R.id.iv_item_avatar_icon);
         TextView mTvReceiver = (TextView) view.findViewById(R.id.tv_money_to_user);
@@ -98,12 +97,12 @@ public class SingleDetailFragment extends RPBaseFragment implements View.OnClick
             mTvTime.setText(DateUtils.getDateFormat(mRedPacketInfo.date));
             mTvItemAmount.setText(String.format(getString(R.string.detail_money_sign), mRedPacketInfo.redPacketAmount));
             mTvMoneyAmount.setVisibility(View.GONE);
-            statusLayout.setVisibility(View.VISIBLE);
+            mTvMoneyStatus.setVisibility(View.VISIBLE);
             mTvMoneyUse.setVisibility(View.GONE);
             tvCheckRecords.setVisibility(View.GONE);
         } else if (mRedPacketInfo.messageDirect.equals(RPConstant.MESSAGE_DIRECT_RECEIVE)) {
             //红包接收者看到的红包详情内容
-            statusLayout.setVisibility(View.GONE);
+            mTvMoneyStatus.setVisibility(View.GONE);
             mLayoutItem.setVisibility(View.GONE);
             mTvMoneyUse.setVisibility(View.VISIBLE);
             mTvSender.setText(mRedPacketInfo.senderNickname);

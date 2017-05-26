@@ -17,6 +17,7 @@
         <ImageView
             android:id="@+id/iv_avatar"
             style="@style/AvatarIconStyle"
+            android:layout_marginTop="@dimen/size129px"
             android:layout_centerHorizontal="true"
             android:src="@drawable/rp_avatar"/>
     </RelativeLayout>
@@ -33,18 +34,16 @@
             android:id="@+id/tv_money_sender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:ellipsize="end"
-            android:gravity="center"
             android:maxEms="10"
             android:maxLines="1"
+            android:text="解决解决军军军军解决解决军军斤斤计较斤斤计较斤斤计较斤斤计较"
             android:textColor="@color/rp_text_black"
             android:textSize="@dimen/font45px"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/money_username_format"
             android:textColor="@color/rp_text_black"
             android:textSize="@dimen/font45px"/>
@@ -53,9 +52,9 @@
             android:id="@+id/iv_group_random"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:layout_marginLeft="@dimen/size18px"
-            android:visibility="gone"/>
+            android:src="@drawable/rp_random_icon"
+            android:visibility="visible"/>
     </LinearLayout>
 
 
@@ -69,12 +68,14 @@
         android:ellipsize="end"
         android:maxEms="22"
         android:maxLines="1"
+        android:text="恭喜发财"
         android:textColor="@color/rp_text_light_grey"
         android:textSize="@dimen/font36px"/>
 
     <TextView
         android:id="@+id/tv_money_amount"
-        style="@style/ReceivedMoneyStyle"/>
+        style="@style/ReceivedMoneyStyle"
+        android:text="￥123"/>
 
     <TextView
         android:id="@+id/tv_money_use"
@@ -87,12 +88,12 @@
         android:textColor="@color/rp_text_light_grey"
         android:textSize="@dimen/font36px"/>
 
-    <LinearLayout
-        android:id="@+id/status_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/rp_money_bg_color"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:id="@+id/status_layout"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/rp_money_bg_color"-->
+        <!--android:orientation="vertical">-->
 
         <!--<View-->
         <!--style="@style/DividerStyle"-->
@@ -100,17 +101,21 @@
 
         <TextView
             android:id="@+id/tv_money_status"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/size48px"
-            android:layout_marginTop="@dimen/size45px"
+            android:paddingLeft="@dimen/size48px"
+            android:paddingBottom="@dimen/size24px"
+            android:paddingTop="@dimen/size45px"
             android:text="@string/money_status_no_taken"
             android:textColor="@color/rp_text_light_grey"
+            android:background="@color/rp_money_bg_color"
             android:textSize="@dimen/font36px"/>
 
         <View
             style="@style/DividerStyle"
-            android:layout_marginTop="@dimen/size24px"/>
-    </LinearLayout>
+            android:layout_width="match_parent"
+            android:background="@color/rp_money_red_light"
+            />
+    <!--</LinearLayout>-->
 
 </LinearLayout>

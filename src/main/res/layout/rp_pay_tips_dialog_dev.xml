@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraint_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rp_shape_white_conner">
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size114px"
+        android:text="解绑支付宝"
+        android:textColor="@color/rp_text_black"
+        android:textSize="@dimen/font48px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <!--字符串里面有换行符展示有问题，需要重新调整布局-->
+    <TextView
+        android:id="@+id/tv_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size57px"
+        android:paddingLeft="@dimen/size99px"
+        android:paddingRight="@dimen/size99px"
+        android:text="你确定解绑支付宝吗？"
+        android:textColor="@color/rp_text_grey"
+        android:textSize="@dimen/font39px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_goneMarginTop="@dimen/size114px"/>
+
+    <View
+        android:id="@+id/item_line"
+        style="@style/DividerStyle"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="@dimen/size114px"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_msg"/>
+
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="@string/btn_cancel"
+        android:textColor="@color/rp_button_blue"
+        android:textSize="@dimen/font48px"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/dialog_hint_divider"
+        app:layout_constraintTop_toBottomOf="@+id/item_line"
+        android:layout_marginTop="-1dp"/>
+
+
+    <TextView
+        android:id="@+id/btn_ok"
+        android:layout_width="0dp"
+        android:layout_height="44dp"
+        android:gravity="center"
+        android:text="@string/btn_ok"
+        android:textColor="@color/rp_button_blue"
+        android:textSize="@dimen/font48px"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/dialog_hint_divider"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_line"
+        />
+
+    <View
+        android:id="@+id/dialog_hint_divider"
+        android:layout_width="1px"
+        android:layout_height="44dp"
+        android:background="@color/rp_divider_color"
+        app:layout_constraintLeft_toRightOf="@+id/btn_cancel"
+        app:layout_constraintRight_toLeftOf="@+id/btn_ok"
+        app:layout_constraintTop_toTopOf="@+id/btn_cancel"/>
+</android.support.constraint.ConstraintLayout>

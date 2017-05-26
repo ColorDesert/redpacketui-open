@@ -1,5 +1,6 @@
 package com.yunzhanghu.redpacketui.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.content.ContextCompat;
@@ -82,7 +83,7 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_received_record_list_item_dev, parent, false);
             holder = new ItemViewHolder(view);
         } else if (viewType == TYPE_FOOTER) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_record_list_footer_dev, parent, false);
+            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rp_record_list_footer, parent, false);
             holder = new FooterViewHolder(view);
         }
         return holder;
@@ -103,6 +104,7 @@ public class ReceivedRecordAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         }
     }
 
+    @SuppressLint("StringFormatInvalid")
     private void setHeaderViews(HeaderViewHolder headerViewHolder, int position) {
         final RedPacketInfo redPacketInfo = mList.get(position);
         headerViewHolder.tvUserName.setText(String.format(mContext.getString(R.string.name_str_format_received), mCurrentUserName));

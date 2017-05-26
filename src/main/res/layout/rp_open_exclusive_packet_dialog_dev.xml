@@ -1,31 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="@dimen/dialogWidth"
-                android:layout_height="@dimen/dialogHeight"
-                android:background="@drawable/rp_open_packet_bg"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/exclusive_rp_main"
+    android:layout_width="@dimen/dialogWidth"
+    android:layout_height="@dimen/dialogHeight"
+    android:background="@drawable/rp_open_packet_bg"
     >
 
     <ImageView
         android:id="@+id/iv_exclusive_closed"
-        android:layout_width="@dimen/size114px"
-        android:layout_height="@dimen/size114px"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
         android:scaleType="centerInside"
         android:src="@drawable/rp_closed_yellow_icon"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         />
 
     <ImageView
         android:id="@+id/iv_exclusive_avatar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_exclusive_closed"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/size63px"
-        android:src="@drawable/rp_exclusive_avatar"
-        />
+        android:background="@drawable/rp_exclusive_avatar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_exclusive_closed"/>
     <!--偷窥红包者用-->
     <TextView
         android:id="@+id/tv_exclusive_greeting"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/iv_avatar"
         android:layout_marginLeft="@dimen/size60px"
@@ -37,17 +42,20 @@
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font69px"
         android:visibility="gone"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_exclusive_avatar"/>
 
     <FrameLayout
         android:id="@+id/layout_exclusive_avatar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/iv_exclusive_avatar"
+        android:layout_below="@id/iv_avatar"
         android:layout_marginTop="@dimen/size75px"
         android:orientation="horizontal"
-        android:visibility="visible"
-        >
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_exclusive_avatar">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -87,12 +95,12 @@
 
     <TextView
         android:id="@+id/tv_exclusive_username"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/layout_exclusive_avatar"
-        android:layout_centerInParent="true"
+        android:layout_marginEnd="@dimen/size60px"
         android:layout_marginLeft="@dimen/size60px"
         android:layout_marginRight="@dimen/size60px"
+        android:layout_marginStart="@dimen/size60px"
         android:layout_marginTop="@dimen/size30px"
         android:ellipsize="end"
         android:gravity="center"
@@ -100,62 +108,73 @@
         android:maxLines="1"
         android:textColor="@color/rp_money_white"
         android:textSize="@dimen/font42px"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout_exclusive_avatar"/>
 
 
     <TextView
         android:id="@+id/tv_exclusive_title"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_exclusive_username"
+        android:layout_marginEnd="@dimen/size60px"
         android:layout_marginLeft="@dimen/size60px"
         android:layout_marginRight="@dimen/size60px"
+        android:layout_marginStart="@dimen/size60px"
         android:layout_marginTop="@dimen/size9px"
         android:ellipsize="end"
-        android:gravity="center"
         android:lines="1"
         android:text="@string/send_you_money"
         android:textColor="@color/rp_money_white"
         android:textSize="@dimen/font45px"
-        />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_exclusive_username"/>
 
 
     <TextView
         android:id="@+id/tv_exclusive_amount"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_exclusive_open_money"
         android:layout_marginBottom="@dimen/size120px"
+        android:layout_marginEnd="@dimen/size81px"
         android:layout_marginLeft="@dimen/size81px"
         android:layout_marginRight="@dimen/size81px"
+        android:layout_marginStart="@dimen/size81px"
         android:gravity="center"
         android:maxLines="1"
         android:text="0.01"
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font129px"
         android:visibility="gone"
-        />
+        app:layout_constraintBottom_toTopOf="@+id/btn_exclusive_open_money"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <Button
         android:id="@+id/btn_exclusive_open_money"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="@dimen/size129px"
-        android:layout_alignParentBottom="true"
         android:layout_marginBottom="@dimen/size84px"
+        android:layout_marginEnd="@dimen/size225px"
         android:layout_marginLeft="@dimen/size225px"
         android:layout_marginRight="@dimen/size225px"
+        android:layout_marginStart="@dimen/size225px"
         android:background="@drawable/rp_btn_open_selector_unsolid"
         android:text="@string/btn_text_open_money"
         android:textColor="@color/rp_title_color"
         android:textSize="@dimen/font54px"
-        />
-
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <LinearLayout
         android:id="@+id/target_layout"
-        android:layout_width="@dimen/size180px"
-        android:layout_height="@dimen/size180px"
-        android:layout_centerInParent="true"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:orientation="vertical"
-        />
-</RelativeLayout>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+</android.support.constraint.ConstraintLayout>
